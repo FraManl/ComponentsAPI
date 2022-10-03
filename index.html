@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,14 +11,16 @@
     <link rel="icon" href="./static/img/favicon.ico">
     <script type="module" src="controller.js"></script>
   </head>
+
+
+
   <body>
     <div class="container-main">
       <header class="header-main">
         <div class="header-container">
           <img src="./static/img/Thales-logo2.png" class="header-logo"></img>
           <div class="header-context">
-            <!-- <h2 class="header-text">Electronic Components API
-            </h2> -->
+            <a class="nav__el">Log In</a>
           </div>
         </div>
       </header>
@@ -59,14 +63,55 @@
           </div>
           <div class="panel query-options-firstpanel">          
             <img src="./static/img/Mouser-logo.png" class="panel-img">
+            <form>
+              <label>Region of the data : </label>
+              <select id="cars" name="cars">
+                <option value="volvo">UK</option>
+                <option value="saab">FR</option>
+                <option value="fiat">DE</option>
+                <option value="audi">JP</option>
+              </select>
+              <br>
+              <label>Stock Condition : </label>
+              <input type="text" id="queryoptions-stock">
+              <br>
+              <label>Number of results : </label>
+              <input type="text" id="queryoptions-result">
+              <br><br>
+              <button href="/">Save settings</button>
+            </form>
           </div>
 
           <div class="panel query-options-secondpanel">
             <img src="./static/img/Farnell-logo.png" class="panel-img">
+            <form>
+              <label>Region of the data : </label>
+              <input type="text" id="queryoptions-region">
+              <br>
+              <label>Stock Condition : </label>
+              <input type="text" id="queryoptions-stock">
+              <br>
+              <label>Number of results : </label>
+              <input type="text" id="queryoptions-result">
+              <br><br>
+              <button href="/">Save settings</button>
+            </form>
           </div>
 
           <div class="panel query-options-thirdpanel">
             <img src="./static/img/Digikey-logo.png" class="panel-img">
+            <form>
+              <label>Region of the data : </label>
+              <input type="text" id="queryoptions-region">
+              <br>
+              <label>Stock Condition : </label>
+              <input type="text" id="queryoptions-stock">
+              <br>
+              <label>Number of results : </label>
+              <input type="text" id="queryoptions-result">
+              <br><br>
+              <button href="/">Save settings</button>
+            </form>
           </div>
 
           <!-- <div class="query-options-fifthpanel">Fifth Panel</div> -->

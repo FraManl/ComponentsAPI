@@ -10,7 +10,9 @@ export const state = {
     responses: [],
   },
   fileItem: [],
-  query: {},
+  queryOptions: {
+    countryList: ["fr", "uk", "de"],
+  },
 };
 
 export const searchComponent = async function (id, url, api, key, dataHeader) {

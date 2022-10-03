@@ -40,7 +40,8 @@ const controlDropzoneView = function () {
 
 const controlFarnellApiCall = async function () {
   try {
-    const componentState = model.state.componentInput;
+    const componentState = Object.values(model.state.partNumber);
+    console.log(componentState);
     componentState.forEach(async function (component, id) {
       const componentId = component.id;
       const urlQuery = FarnellObject.generateUrl(component);
@@ -91,9 +92,9 @@ const init = function () {
   previewViews._addHandlerReset(controlPreviewReset);
   dropzoneViews._addHandlerDrop(controlDropzoneView);
   dropzoneViews._addHandlerClick(controlDropzoneView);
-  // FarnellObject._addHandlerCall(controlFarnellApiCall);
+  FarnellObject._addHandlerCall(controlFarnellApiCall);
   // MouserObject._addHandlerCall(controlMouserApiCall);
-  DigikeyObject._addHandlerCall(controlDigikeyApiCall);
+  // DigikeyObject._addHandlerCall(controlDigikeyApiCall);
 };
 
 init();

@@ -17,7 +17,7 @@ class previewViews extends View {
     //   resultString += `${value.id}: ${value.component}<br>`;
     // }
     for (const [key, value] of dataEntries) {
-      resultString += baseString.concat(`${key} : ${value}<br>`);
+      resultString += baseString.concat(`${key * 1 + 1} : ${value}<br>`);
     }
     return resultString;
   }

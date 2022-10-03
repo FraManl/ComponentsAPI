@@ -492,7 +492,8 @@ const controlDropzoneView = function() {
 };
 const controlFarnellApiCall = async function() {
     try {
-        const componentState = _modelJs.state.componentInput;
+        const componentState = Object.values(_modelJs.state.partNumber);
+        console.log(componentState);
         componentState.forEach(async function(component, id) {
             const componentId = component.id;
             const urlQuery = _farnellJsDefault.default.generateUrl(component);
@@ -528,9 +529,9 @@ const init = function() {
     _previewViewsJsDefault.default._addHandlerReset(controlPreviewReset);
     _dropzoneViewsJsDefault.default._addHandlerDrop(controlDropzoneView);
     _dropzoneViewsJsDefault.default._addHandlerClick(controlDropzoneView);
-    // FarnellObject._addHandlerCall(controlFarnellApiCall);
-    // MouserObject._addHandlerCall(controlMouserApiCall);
-    _digikeyJsDefault.default._addHandlerCall(controlDigikeyApiCall);
+    _farnellJsDefault.default._addHandlerCall(controlFarnellApiCall);
+// MouserObject._addHandlerCall(controlMouserApiCall);
+// DigikeyObject._addHandlerCall(controlDigikeyApiCall);
 };
 init();
 
@@ -555,7 +556,12 @@ const state = {
         responses: []
     },
     fileItem: [],
-    query: {
+    queryOptions: {
+        countryList: [
+            "fr",
+            "uk",
+            "de"
+        ]
     }
 };
 const searchComponent = async function(id, url, api, key, dataHeader) {
@@ -952,7 +958,7 @@ class previewViews extends _viewJsDefault.default {
         // for (const [, value] of dataEntries) {
         //   resultString += `${value.id}: ${value.component}<br>`;
         // }
-        for (const [key, value] of dataEntries)resultString += baseString.concat(`${key} : ${value}<br>`);
+        for (const [key, value] of dataEntries)resultString += baseString.concat(`${key * 1 + 1} : ${value}<br>`);
         return resultString;
     }
     _generateMarkup() {
