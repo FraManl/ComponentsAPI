@@ -944,13 +944,13 @@ class previewViews extends _viewJsDefault.default {
     _titleElement = document.querySelector(".query-input-title");
     _btnReset = document.querySelector(".btn-reset");
     _previewString() {
+        let baseString = "Row number ";
         let resultString = "";
         const dataEntries = Object.entries(this._data);
-        console.log(dataEntries);
         // for (const [, value] of dataEntries) {
         //   resultString += `${value.id}: ${value.component}<br>`;
         // }
-        for (const [key, value] of dataEntries)resultString += `${key}: ${value}<br>`;
+        for (const [key, value] of dataEntries)resultString += baseString.concat(`${key} : ${value}<br>`);
         return resultString;
     }
     _generateMarkup() {
@@ -986,7 +986,7 @@ class View {
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
     renderTitle() {
-        this._titleElement.innerHTML = "Verify your components...";
+        this._titleElement.innerHTML = "Verify your component list...";
     }
     resetTitle() {
         this._titleElement.innerHTML = "Add some components to search...";

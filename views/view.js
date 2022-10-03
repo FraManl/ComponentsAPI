@@ -9,7 +9,7 @@ export default class View {
   }
 
   renderTitle() {
-    this._titleElement.innerHTML = "Verify your components...";
+    this._titleElement.innerHTML = "Verify your component list...";
   }
 
   resetTitle() {

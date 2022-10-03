@@ -9,14 +9,15 @@ class previewViews extends View {
   _btnReset = document.querySelector(".btn-reset");
 
   _previewString() {
+    let baseString = "Row number ";
     let resultString = "";
+
     const dataEntries = Object.entries(this._data);
-    console.log(dataEntries);
     // for (const [, value] of dataEntries) {
     //   resultString += `${value.id}: ${value.component}<br>`;
     // }
     for (const [key, value] of dataEntries) {
-      resultString += `${key}: ${value}<br>`;
+      resultString += baseString.concat(`${key} : ${value}<br>`);
     }
     return resultString;
   }
