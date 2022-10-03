@@ -554,7 +554,9 @@ const state = {
     componentOutput: {
         responses: []
     },
-    fileItem: []
+    fileItem: [],
+    query: {
+    }
 };
 const searchComponent = async function(id, url, api, key, dataHeader) {
     try {

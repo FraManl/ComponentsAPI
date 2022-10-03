@@ -10,6 +10,7 @@ export const state = {
     responses: [],
   },
   fileItem: [],
+  query: {},
 };
 
 export const searchComponent = async function (id, url, api, key, dataHeader) {
