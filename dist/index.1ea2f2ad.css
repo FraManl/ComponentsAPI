@@ -283,7 +283,8 @@ h3 {
   justify-content: center;
   height: auto;
   gap: 30px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 190px 450px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;

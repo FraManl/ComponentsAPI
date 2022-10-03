@@ -1,0 +1,62 @@
+Script started on 2022-10-03 15:07:58+02:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="255" LINES="20"]
+[?2004h]0;frama@Nounours0901: ~/Bureau/Projects/ComponentsAPI[01;32mframa@Nounours0901[00m:[01;34m~/Bureau/Projects/ComponentsAPI[00m$ npm s[Krun staet
+[?2004l[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m Missing script: "staet"
+[0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m Did you mean this?
+[0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m     npm start # Start a package
+[0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m To see a list of scripts, run:
+[0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m   npm run
+[0m
+[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m A complete log of this run can be found in:
+[0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m     /home/frama/.npm/_logs/2022-10-03T13_08_12_585Z-debug-0.log
+[0m[?2004h]0;frama@Nounours0901: ~/Bureau/Projects/ComponentsAPI[01;32mframa@Nounours0901[00m:[01;34m~/Bureau/Projects/ComponentsAPI[00m$ npm run staet[K[Krt
+[?2004l
+> electroapp@1.0.0 start
+> parcel index.html
+
+[0J[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBuilding index.html...[22m[39m
+[2K[1G[1A[2K[1G[32m⠙[39m [90m[1mBuilding index.html...[22m[39m
+[2K[1G[1A[2K[1G[32m⠹[39m [90m[1mBuilding index.html...[22m[39m
+[2K[1G[1A[2K[1G[32m⠸[39m [90m[1mBuilding style.css...[22m[39m
+[2K[1G[1A[2K[1G[32m⠼[39m [90m[1mBuilding style.css...[22m[39m
+[2K[1G[1A[2K[1G[32m⠴[39m [90m[1mBuilding model.js...[22m[39m
+[2K[1G[1A[2K[1G[32m⠦[39m [90m[1mPackaging favicon.[hash].ico...[22m[39m
+[2K[1G[1A[2K[1G[32m⠧[39m [90m[1mPackaging favicon.[hash].ico...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 629ms[22m[39m
+[0J[2A[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBuilding style.css...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 8ms[22m[39m
+[0J[2A[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBuilding index.html...[22m[39m
+[2K[1G[1A[2K[1G[32m⠙[39m [90m[1mBuilding index.html...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 88ms[22m[39m
+[0J[2A[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBuilding style.css...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 40ms[22m[39m
+[0J[2A[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBuilding style.css...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 40ms[22m[39m
+[0J[2A[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBuilding style.css...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 46ms[22m[39m
+[0J[2A[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBuilding index.html...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 55ms[22m[39m
+[0J[2A[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBuilding index.html...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 19ms[22m[39m
+[0J[2A[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBuilding index.html...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 11ms[22m[39m
+[?25h[?2004h]0;frama@Nounours0901: ~/Bureau/Projects/ComponentsAPI[01;32mframa@Nounours0901[00m:[01;34m~/Bureau/Projects/ComponentsAPI[00m$ npm run start
+[?2004l
+> electroapp@1.0.0 start
+> parcel index.html
+
+[0J[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[32m⠋[39m [90m[1mBundling...[22m[39m
+[2K[1G[1A[2K[1G[?25h✨ [32m[1mBuilt in 91ms[22m[39m
+[0J[2A[0J[34m[1mServer running at http://localhost:1234[22m[39m
+[?25l[3
