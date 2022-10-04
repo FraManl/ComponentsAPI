@@ -8,9 +8,7 @@ const stateSchema = new mongoose.Schema({
     responses: [],
   },
   fileItem: [],
-  queryOptions: {
-    countryList: ["fr", "uk", "de"],
-  },
+  queryOptions: ,
 });
 
 const State = mongoose.model("State", stateSchema);
