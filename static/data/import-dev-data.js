@@ -2,7 +2,6 @@ const fs = require("fs");
 
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
 const State = require("../../models/stateModel");
 const User = require("../../models/userModel");
 

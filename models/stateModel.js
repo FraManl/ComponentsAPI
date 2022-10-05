@@ -8,7 +8,7 @@ const stateSchema = new mongoose.Schema({
     responses: [],
   },
   fileItem: [],
-  queryOptions: ,
+  queryOptions: {},
 });
 
 const State = mongoose.model("State", stateSchema);
