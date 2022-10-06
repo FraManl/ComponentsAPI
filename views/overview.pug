@@ -7,8 +7,10 @@ block content
             h3 To use the service, please log-in first, or create an account...
 
             .section-middle-welcome__nav
-                button(class="nav__welcome" type="button") Log-In
-                button(class="nav__welcome" type="button") Create an Account
+                button
+                    a(href="/login" class="nav__welcome" type="button") Log-In
+                button
+                    a(href="/signup" class="nav__welcome" type="button") Create an Account
 
     - else 
         section.section-middle
