@@ -2,5 +2,6 @@ header.header-main
     div.header-container
         img(src="/img/Thales-logo2.png" class="header-logo")
         div.header-context
-            a.nav__el Log-In
-            a.nav__el Sign Up
+        if user
+            a.nav__el Log-Out
+            a.nav__el My Settings

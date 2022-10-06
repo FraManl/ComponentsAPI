@@ -3,6 +3,13 @@ extends base
 block content
     - if (!user) 
         section.section-middle__welcome
+            h1 Components API Portal
+            h3 To use the service, please log-in first, or create an account...
+
+            .section-middle-welcome__nav
+                button(class="nav__welcome" type="button") Log-In
+                button(class="nav__welcome" type="button") Create an Account
+
     - else 
         section.section-middle
             .section-middle-dropzone

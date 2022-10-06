@@ -1,4 +1,16 @@
 /* Global Section */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 * {
   box-sizing: border-box;
@@ -74,6 +86,27 @@ h3 {
   align-self: center;
 }
 
+.nav__welcome,
+.nav__welcome:link .nav__welcome:visiter {
+  color: #3d2828;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  font-weight: 400;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
 .nav__el,
 .nav__el:link,
 .nav__el:visited {
@@ -107,15 +140,20 @@ h3 {
   justify-content: space-between;
 }
 
-.section-middle h1 {
-  font-size: 2.5rem;
-}
-
 .section-middle__welcome {
   display: grid;
   gap: 30px;
   grid-template-columns: 1fr;
-  grid-template-rows: 600px;
+  grid-template-rows: 150px 150px 200px;
+  justify-items: center;
+}
+.section-middle__welcome h1 {
+  font-size: 2.5rem;
+  color: #2b2f75;
+}
+.section-middle__welcome h3 {
+  font-size: 1.5rem;
+  color: #64667c;
 }
 
 /* Middle Section */
