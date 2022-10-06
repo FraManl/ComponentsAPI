@@ -48,7 +48,7 @@ const createSendToken = function (user, statusCode, res) {
 exports.signup = catchAsync(async (req, res, next) => {
   // retrieve and create the user
   const newUser = await User.create({
-    name: req.body.name,
+    userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
@@ -56,8 +56,26 @@ exports.signup = catchAsync(async (req, res, next) => {
 
   // welcome the user by sending email
   const url = `${req.protocol}://${req.get("host")}/me`;
-  await new Email(newUser, url).sendWelcome();
+  //   await new Email(newUser, url).sendWelcome();
 
   // generate and send token back to user
   createSendToken(newUser, 201, res);
+});
+
+exports.login = catchAsync(async (req, res, next) => {
+  console.log(req.body);
+  // extract user input from request body
+  const { email, password } = req.body;
+
+  // if no email or password is set, return to next middleware
+  if (!email || !password) return next();
+
+  const user = await User.findOne({ email }).select("+password");
+
+  // if user is not found using the email or password is not matched, return to next middleware
+  if (!user || !(await user.correctPassword(password, user.password)))
+    return next();
+
+  // if all above qualifies, generate and send token to user
+  createSendToken(user, 200, req, res);
 });
