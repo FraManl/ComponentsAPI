@@ -9,14 +9,17 @@ const viewRouter = require("./routes/viewRoutes");
 
 const app = express();
 
-app.enable("trust proxy");
-app.use(cors());
+// app.enable("trust proxy");
 app.use(cookieParser());
+// app.use(cors());
+// app.use(cors({ origin: true, credentials: true }));
+
 app.post(bodyParser.raw({ type: "application/json" }));
 app.use(bodyParser.json());
-app.options("*", cors());
+// app.options("*", cors());
 
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "static")));
 
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
