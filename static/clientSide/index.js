@@ -1,8 +1,9 @@
 import "@babel/polyfill";
-import { login, signup } from "./login";
+import { login, signup, logout } from "./login";
 
 const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
+const signOutBtn = document.getElementById("logout-btn");
 
 if (signupForm) {
   signupForm.addEventListener("submit", (e) => {
@@ -28,5 +29,12 @@ if (loginForm) {
 
     // execute a post request using axios to log the user in
     login(email, password);
+  });
+}
+
+if (signOutBtn) {
+  signOutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    logout();
   });
 }

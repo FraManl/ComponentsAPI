@@ -3,5 +3,8 @@ header.header-main
         img(src="/img/Thales-logo2.png" class="header-logo")
         div.header-context
         if user
-            a.nav__el Log-Out
+            a(id="logout-btn" class="nav__el" type="button") Log-Out
             a.nav__el My Settings
+        else 
+            a.nav__el
+            a.nav__el
