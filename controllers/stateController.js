@@ -23,3 +23,14 @@ exports.getState = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+exports.createState = catchAsync(async (req, res, next) => {
+  const request = await State.create(req.body);
+
+  res.status(200).json({
+    status: "success",
+    requests: {
+      request,
+    },
+  });
+});

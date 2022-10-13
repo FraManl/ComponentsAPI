@@ -49,5 +49,6 @@ if (componentInput) {
   document.querySelector(".btn-submit").addEventListener("click", (e) => {
     e.preventDefault();
     searchComponent(componentInput.value);
+    componentInput.value_ = "";
   });
 }

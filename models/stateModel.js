@@ -2,14 +2,17 @@ const mongoose = require("mongoose");
 const slugify = require("slugify");
 
 const stateSchema = new mongoose.Schema({
-  partNumber: {},
-  componentInput: {},
-  componentOutput: {
-    responses: [],
+  partNumber: {
+    type: String,
   },
-  fileItem: [],
-  queryOptions: {},
 });
+//   componentInput: {},
+//   componentOutput: {
+//     responses: [],
+//   },
+//   fileItem: [],
+//   queryOptions: {},
+// });
 
 const State = mongoose.model("State", stateSchema);
 
