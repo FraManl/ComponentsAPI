@@ -1,9 +1,11 @@
 import "@babel/polyfill";
 import { login, signup, logout } from "./login";
+import { searchComponent, loadFile, dropFile } from "./inputForm";
 
 const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
 const signOutBtn = document.getElementById("logout-btn");
+const componentInput = document.querySelector(".section-middle-input");
 
 if (signupForm) {
   signupForm.addEventListener("submit", async (e) => {
@@ -40,5 +42,12 @@ if (signOutBtn) {
   signOutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     logout();
+  });
+}
+
+if (componentInput) {
+  document.querySelector(".btn-submit").addEventListener("click", (e) => {
+    e.preventDefault();
+    searchComponent(componentInput.value);
   });
 }
