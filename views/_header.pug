@@ -2,9 +2,13 @@ header.header-main
     div.header-container
         img(src="/img/Thales-logo2.png" class="header-logo")
         div.header-context
-        if user
-            a(id="logout-btn" class="nav__el" type="button") Log-Out
-            a.nav__el My Settings
-        else 
-            a.nav__el
-            a.nav__el
+            if user
+                a.nav__el(href='/me')
+                    img.nav__user-img(src=`/img/default.jpg` alt=`Photo of ${user.userName}`)
+                    span=user.userName.split(' ')[0]
+                a.nav__el My Account
+                a(id="logout-btn" class="nav__el" type="button") Log-Out
+
+            else 
+                a.nav__el
+                a.nav__el

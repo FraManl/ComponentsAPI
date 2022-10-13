@@ -6,7 +6,7 @@ const signupForm = document.querySelector(".form--signup");
 const signOutBtn = document.getElementById("logout-btn");
 
 if (signupForm) {
-  signupForm.addEventListener("submit", (e) => {
+  signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // retrieve user signup information
@@ -16,19 +16,23 @@ if (signupForm) {
     const passwordConfirm = document.getElementById("passwordconfirm").value;
 
     // execute a post request using axios to create the user in db
-    signup(userName, email, password, passwordConfirm);
+    await signup(userName, email, password, passwordConfirm);
+    document.querySelector(".btn--signup").textContent = "Signing-Up...";
   });
 }
 
 if (loginForm) {
-  loginForm.addEventListener("submit", (e) => {
+  loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     // retrieve user login information
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
     // execute a post request using axios to log the user in
-    login(email, password);
+    await login(email, password);
+    document.querySelector(".btn--login").textContent = "Logging-in...";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
   });
 }
 

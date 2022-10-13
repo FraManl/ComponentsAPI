@@ -2,9 +2,10 @@ extends base
 
 block content
     section.section-middle__login
-        button
-            a(href="/") Go back
         .login-form
+            a(class="nav__home" href="/")
+                img(class="nav__home" src="/img/home.png")
+
             h2.heading-secondary.ma-bt-lg Log into your account
                 form.form.form--login
                     .form__group
@@ -14,4 +15,4 @@ block content
                         label.form__label(for='password') Password
                         input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
                     .form__group
-                        button.btn.btn--green Login
+                        button.btn--login Login Now

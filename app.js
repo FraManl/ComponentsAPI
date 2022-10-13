@@ -6,6 +6,8 @@ const cookieParser = require("cookie-parser");
 const userRouter = require("./routes/userRoutes");
 const stateRouter = require("./routes/stateRoutes");
 const viewRouter = require("./routes/viewRoutes");
+const AppError = require("./utils/appError");
+const globalErrorHandler = require("./controllers/errorController");
 
 const app = express();
 
@@ -27,5 +29,16 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use("/", viewRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/requests", stateRouter);
+
+app.use("*", (req, res, next) => {
+  next(
+    new AppError(
+      `The url ${req.originalUrl} can't be found on this server.`,
+      404
+    )
+  );
+});
+
+app.use(globalErrorHandler);
 
 module.exports = app;

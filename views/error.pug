@@ -1,0 +1,15 @@
+extends base
+
+block content
+    section.section-middle--error
+
+        .error
+            img(src='/img/error.png')
+            .error__title
+
+                h2.heading-secondary.heading-secondary--error Something went wrong!...
+                .error__msg=msg
+
+                    a(href="/" class="btn--login") Go Back
+
+                

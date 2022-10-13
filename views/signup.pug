@@ -2,9 +2,10 @@ extends base
 
 block content
     section.section-middle__login
-        button
-            a(href="/") Go back
         .login-form
+            a(class="nav__home" href="/")
+                img(class="nav__home" src="/img/home.png")
+
             h2.heading-secondary.ma-bt-lg Create your account
                 form.form.form--signup
                     .form__group
@@ -20,4 +21,4 @@ block content
                         label.form__label(for='passwordConfirm') Password Confirm
                         input#passwordconfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
                     .form__group
-                        button.btn.btn--green Sign-Up for an account
+                        button.btn.btn--signup Sign-Up for an account
