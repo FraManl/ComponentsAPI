@@ -1,11 +1,19 @@
 import "@babel/polyfill";
 import { login, signup, logout } from "./login";
-import { searchComponent, loadFile, dropFile } from "./inputForm";
+import { highlight, unhighlight } from "../utils";
+import {
+  searchComponent,
+  loadFile,
+  dropFile,
+  dropComponent,
+} from "./inputForm";
+// import { handleDrop, highlight, unhighlight } from "../utils";
 
 const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
 const signOutBtn = document.getElementById("logout-btn");
 const componentInput = document.querySelector(".section-middle-input");
+const dropZone = document.querySelector("#drop_zone");
 
 if (signupForm) {
   signupForm.addEventListener("submit", async (e) => {
@@ -49,6 +57,30 @@ if (componentInput) {
   document.querySelector(".btn-submit").addEventListener("click", (e) => {
     e.preventDefault();
     searchComponent(componentInput.value);
-    componentInput.value_ = "";
+    componentInput.value = "";
   });
+}
+
+if (dropZone) {
+  // highlight(dropZone);
+
+  // [("dragenter", "dragover")].forEach((eventName) => {
+  //   dropZone.addEventListener(eventName, highlight, false);
+  // });
+
+  // ["dragleave", "drop"].forEach((eventName) => {
+  //   dropZone.addEventListener(eventName, unhighlight, false);
+  // });
+
+  ["dragenter", "dragover", "dragleave", "drop"].forEach((event) => {
+    window.addEventListener(event, preventDefaults, false);
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.dataTransfer.effectAllowed = "All";
+  }
+
+  dropZone.addEventListener("drop", dropComponent);
 }
