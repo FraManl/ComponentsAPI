@@ -3,7 +3,7 @@ const slugify = require("slugify");
 
 const stateSchema = new mongoose.Schema({
   partNumber: {
-    type: { String },
+    type: [String],
   },
   createdAt: Date,
 });

@@ -5,7 +5,7 @@
   "default": "index.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon --delay 1000ms server.js",
+    "dev": "nodemon --delay 1200ms server.js",
     "watch:js": "parcel watch ./static/clientSide/index.js --out-dir ./static/clientSide --out-file bundle.js",
     "build:js": "parcel build ./static/clientSide/index.js --out-dir ./static/clientSide --out-file bundle.js"
   },

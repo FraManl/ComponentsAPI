@@ -59,15 +59,19 @@ if (dropZone) {
   [("dragenter", "dragover")].forEach((eventName) => {
     dropZone.addEventListener(
       eventName,
-      dropZone.classList.add("highlight"),
+      () => {
+        dropZone.classList.add("highlight");
+      },
       false
     );
   });
 
-  [("dragleave", "drop")].forEach((eventName) => {
+  ["dragleave", "drop"].forEach((eventName) => {
     dropZone.addEventListener(
       eventName,
-      dropZone.classList.remove("highlight"),
+      () => {
+        dropZone.classList.remove("highlight");
+      },
       false
     );
   });
@@ -76,5 +80,5 @@ if (dropZone) {
     window.addEventListener(event, preventDefaults, false);
   });
 
-  dropZone.addEventListener("drop", dropComponent);
+  dropZone.addEventListener("drop", dropComponent, false);
 }

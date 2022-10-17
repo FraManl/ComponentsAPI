@@ -39,6 +39,14 @@ app.use("*", (req, res, next) => {
   );
 });
 
+process.once("SIGUSR2", function () {
+  process.kill(process.pid, "SIGUSR2");
+});
+
+process.on("SIGINT", function () {
+  process.kill(process.pid, "SIGINT");
+});
+
 app.use(globalErrorHandler);
 
 module.exports = app;

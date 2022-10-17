@@ -12,11 +12,28 @@ exports.preventDefaults = (e) => {
   e.dataTransfer.effectAllowed = "All";
 };
 
-exports.loadState = async function (type, input) {
+exports.loadState = async function (type, file, input = null) {
   return new Promise((resolve, reject) => {
     try {
       const reader = new FileReader();
       if (type === "drop") {
+        const data = file[0];
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].kind === "file") {
+            const file = data[i].getAsFile();
+            reader.onload = async function (e) {
+              resolve(({ ...componentData } = createArr(e.target.result)));
+              return componentData;
+            };
+            reader.readAsText(file);
+          }
+        }
+      }
+      if (type === "submit") {
+        reader.onload = async function (e) {
+          resolve((componentData = createArr(e.target.result)));
+        };
+        reader.readAsText(input.files[0]);
       }
     } catch (err) {
       console.log(err);
