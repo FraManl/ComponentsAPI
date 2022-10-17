@@ -1,13 +1,7 @@
 import "@babel/polyfill";
 import { login, signup, logout } from "./login";
-import { highlight, unhighlight } from "../utils";
-import {
-  searchComponent,
-  loadFile,
-  dropFile,
-  dropComponent,
-} from "./inputForm";
-// import { handleDrop, highlight, unhighlight } from "../utils";
+import { searchComponent, dropComponent } from "./inputForm";
+import { preventDefaults } from "../utils";
 
 const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
@@ -62,25 +56,25 @@ if (componentInput) {
 }
 
 if (dropZone) {
-  // highlight(dropZone);
+  [("dragenter", "dragover")].forEach((eventName) => {
+    dropZone.addEventListener(
+      eventName,
+      dropZone.classList.add("highlight"),
+      false
+    );
+  });
 
-  // [("dragenter", "dragover")].forEach((eventName) => {
-  //   dropZone.addEventListener(eventName, highlight, false);
-  // });
-
-  // ["dragleave", "drop"].forEach((eventName) => {
-  //   dropZone.addEventListener(eventName, unhighlight, false);
-  // });
+  [("dragleave", "drop")].forEach((eventName) => {
+    dropZone.addEventListener(
+      eventName,
+      dropZone.classList.remove("highlight"),
+      false
+    );
+  });
 
   ["dragenter", "dragover", "dragleave", "drop"].forEach((event) => {
     window.addEventListener(event, preventDefaults, false);
   });
-
-  function preventDefaults(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    e.dataTransfer.effectAllowed = "All";
-  }
 
   dropZone.addEventListener("drop", dropComponent);
 }

@@ -6,10 +6,49 @@ exports.createArr = function (data) {
   return componentData;
 };
 
-exports.highlight = function (elem) {
-  elem.classList.add("highlight");
+exports.preventDefaults = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  e.dataTransfer.effectAllowed = "All";
 };
 
-exports.unhighlight = function (elem) {
-  elem.classList.remove("highlight");
+exports.loadState = async function (type, input) {
+  return new Promise((resolve, reject) => {
+    try {
+      const reader = new FileReader();
+      if (type === "drop") {
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  });
 };
+
+// exports.loadState = async function (type, input) {
+//   return new Promise((resolve, reject) => {
+//     try {
+//       const reader = new FileReader();
+//       if (type === "drop") {
+//         const data = state.fileItem[0];
+//         for (let i = 0; i < data.length; i++) {
+//           if (data[i].kind === "file") {
+//             const file = data[i].getAsFile();
+//             reader.onload = async function (e) {
+//               resolve((state.partNumber = createArr(e.target.result)));
+//               console.log(state.partNumber);
+//             };
+//             reader.readAsText(file);
+//           }
+//         }
+//       }
+//       if (type === "submit") {
+//         reader.onload = async function (e) {
+//           resolve((state.partNumber = createArr(e.target.result)));
+//         };
+//         reader.readAsText(input.files[0]);
+//       }
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   });
+// };

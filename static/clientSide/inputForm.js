@@ -1,23 +1,27 @@
 import axios from "axios";
-import { createArr } from "../utils";
-
-["dragenter", "dragover", "dragleave", "drop"].forEach((event) => {
-  window.addEventListener(event, preventDefaults, false);
-});
-
-function preventDefaults(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  e.dataTransfer.effectAllowed = "All";
-}
+import { createArr, loadState } from "../utils";
 
 exports.dropComponent = async (e) => {
   try {
     e.preventDefault();
     if (!e.dataTransfer.items) return;
-    // state.fileItem.splice(0);
-    // state.fileItem.push(e.dataTransfer.items);
-    // await loadState("drop");
+    const fileItem = e.dataTransfer.items;
+
+    console.log(fileItem);
+    await loadState("drop");
+
+    // const res = axios({
+    //   method: "POST",
+    //   url: "api/v1/requests",
+    //   data: {
+    //     partNumber: "",
+    //   },
+    // });
+
+    // if (res.data.status === "success") {
+    //   console.log("Post method successful");
+    //   console.log(res);
+    // }
     // eventHandlers.queryPreview.classList.add("uploaded");
   } catch (err) {
     console.log(err);
@@ -27,6 +31,8 @@ exports.dropComponent = async (e) => {
 exports.searchComponent = async (partNumber) => {
   try {
     const payLoad = createArr(partNumber);
+    console.log(payLoad);
+
     const res = await axios({
       method: "POST",
       url: "/api/v1/requests",
@@ -42,11 +48,6 @@ exports.searchComponent = async (partNumber) => {
     console.log(err);
   }
 };
-
-// exports.dropFile = () => {
-//   console.log("File dropped");
-//   exports.eventHandlers.dropZone.addEventListener("drop", handleDrop, false);
-// };
 
 exports.loadFile = () => {
   console.log("File imported");
