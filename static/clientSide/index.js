@@ -1,6 +1,6 @@
 import "@babel/polyfill";
 import { login, signup, logout } from "./login";
-import { searchComponent, dropComponent } from "./inputForm";
+import { searchComponent, dropComponent, uploadComponent } from "./inputForm";
 import { preventDefaults } from "../utils";
 
 const loginForm = document.querySelector(".form--login");
@@ -8,6 +8,7 @@ const signupForm = document.querySelector(".form--signup");
 const signOutBtn = document.getElementById("logout-btn");
 const componentInput = document.querySelector(".section-middle-input");
 const dropZone = document.querySelector("#drop_zone");
+const btnBrowseFile = document.querySelector("#section-middle-getfile");
 
 if (signupForm) {
   signupForm.addEventListener("submit", async (e) => {
@@ -81,4 +82,8 @@ if (dropZone) {
   });
 
   dropZone.addEventListener("drop", dropComponent, false);
+}
+
+if (btnBrowseFile) {
+  btnBrowseFile.addEventListener("change", uploadComponent, false);
 }

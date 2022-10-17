@@ -2,35 +2,9 @@ import axios from "axios";
 import { compare } from "bcryptjs";
 import { createArr } from "../utils";
 
-exports.dropComponent = async function (e) {
-  try {
-    e.preventDefault();
-    if (!e.dataTransfer.items) return;
-    let fileItem = [];
-    fileItem.push(e.dataTransfer.items);
-    const stateData = await loadState("drop", fileItem);
-    const res = axios({
-      method: "POST",
-      url: "api/v1/requests",
-      data: {
-        partNumber: stateData,
-      },
-    });
-
-    if (res.data.status === "success") {
-      console.log("Post method successful");
-      console.log(res);
-    }
-    // eventHandlers.queryPreview.classList.add("uploaded");
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 exports.searchComponent = async (partNumber) => {
   try {
     const payLoad = createArr(partNumber);
-
     const res = await axios({
       method: "POST",
       url: "/api/v1/requests",
@@ -46,23 +20,52 @@ exports.searchComponent = async (partNumber) => {
   }
 };
 
-exports.loadFile = () => {
-  console.log("File imported");
+exports.dropComponent = async function (e) {
+  try {
+    e.preventDefault();
+    if (!e.dataTransfer.items) return;
+    let fileItem = [];
+    fileItem.push(e.dataTransfer.items);
+    const stateData = await loadState("drop", fileItem);
+    const res = await axios({
+      method: "POST",
+      url: "api/v1/requests",
+      data: {
+        partNumber: stateData,
+      },
+    });
+    if (res.data.status === "success") {
+      console.log("Post method successful");
+    }
+    // eventHandlers.queryPreview.classList.add("uploaded");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.uploadComponent = async (e) => {
+  try {
+    e.preventDefault();
+    console.log(this.files);
+    await loadState("submit");
+    eventHandlers.queryPreview.classList.add("uploaded");
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const loadState = async function (type, file, input = null) {
   return new Promise((resolve, reject) => {
     try {
       const reader = new FileReader();
+      let componentData;
       if (type === "drop") {
         const data = file[0];
         for (let i = 0; i < data.length; i++) {
           if (data[i].kind === "file") {
             const file = data[i].getAsFile();
             reader.onload = async function (e) {
-              resolve(
-                ({ ...componentData } = utils.createArr(e.target.result))
-              );
+              resolve(({ ...componentData } = e.target.result.split("\n")));
               return componentData;
             };
             reader.readAsText(file);
@@ -72,6 +75,7 @@ const loadState = async function (type, file, input = null) {
       if (type === "submit") {
         reader.onload = async function (e) {
           resolve((componentData = createArr(e.target.result)));
+          return componentData;
         };
         reader.readAsText(input.files[0]);
       }
