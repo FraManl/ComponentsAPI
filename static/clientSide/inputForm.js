@@ -1,5 +1,6 @@
 import axios from "axios";
 import { compare } from "bcryptjs";
+import { state } from "../../model";
 import { createArr } from "../utils";
 
 exports.searchComponent = async (partNumber) => {
@@ -26,7 +27,7 @@ exports.dropComponent = async function (e) {
     if (!e.dataTransfer.items) return;
     let fileItem = [];
     fileItem.push(e.dataTransfer.items);
-    const stateData = await loadState("drop", fileItem);
+    const stateData = await readerHandler("drop", fileItem);
     const res = await axios({
       method: "POST",
       url: "api/v1/requests",
@@ -43,18 +44,27 @@ exports.dropComponent = async function (e) {
   }
 };
 
-exports.uploadComponent = async (e) => {
+exports.uploadComponent = async function (e) {
   try {
     e.preventDefault();
-    console.log(this.files);
-    await loadState("submit");
-    eventHandlers.queryPreview.classList.add("uploaded");
+    const stateData = await readerHandler("submit", null, this);
+    const res = await axios({
+      method: "POST",
+      url: "/api/v1/requests",
+      data: {
+        partNumber: stateData,
+      },
+    });
+    if (res.status === "success") {
+      console.log("Post method successful");
+    }
+    // eventHandlers.queryPreview.classList.add("uploaded");
   } catch (err) {
     console.log(err);
   }
 };
 
-const loadState = async function (type, file, input = null) {
+const readerHandler = async function (type, file, input) {
   return new Promise((resolve, reject) => {
     try {
       const reader = new FileReader();
