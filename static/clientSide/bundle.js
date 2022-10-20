@@ -62139,7 +62139,7 @@ var unhighlight = function unhighlight() {
 };
 
 exports.unhighlight = unhighlight;
-},{}],"../../model.js":[function(require,module,exports) {
+},{}],"../../archive/model.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -62147,9 +62147,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.state = exports.searchComponent = exports.emptyState = void 0;
 
-var helpers = _interopRequireWildcard(require("./helpers.js"));
+var helpers = _interopRequireWildcard(require("../helpers.js"));
 
-var eventHandlers = _interopRequireWildcard(require("./eventHandlers.js"));
+var eventHandlers = _interopRequireWildcard(require("../eventHandlers.js"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -62463,7 +62463,7 @@ function preventDefaults(e) {
   e.stopPropagation();
   e.dataTransfer.effectAllowed = "All";
 }
-},{"./helpers.js":"../../helpers.js","./eventHandlers.js":"../../eventHandlers.js"}],"../utils.js":[function(require,module,exports) {
+},{"../helpers.js":"../../helpers.js","../eventHandlers.js":"../../eventHandlers.js"}],"../utils.js":[function(require,module,exports) {
 exports.createArr = function (data) {
   // check the typeof input data and spread in an object
   var componentData;
@@ -62511,7 +62511,7 @@ var _axios = _interopRequireDefault(require("axios"));
 
 var _bcryptjs = require("bcryptjs");
 
-var _model = require("../../model");
+var _model = require("../../archive/model");
 
 var _utils = require("../utils");
 
@@ -62779,7 +62779,7 @@ var readerHandler = /*#__PURE__*/function () {
     return _ref4.apply(this, arguments);
   };
 }();
-},{"axios":"../../node_modules/axios/index.js","bcryptjs":"../../node_modules/bcryptjs/dist/bcrypt.js","../../model":"../../model.js","../utils":"../utils.js"}],"index.js":[function(require,module,exports) {
+},{"axios":"../../node_modules/axios/index.js","bcryptjs":"../../node_modules/bcryptjs/dist/bcrypt.js","../../archive/model":"../../archive/model.js","../utils":"../utils.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("core-js/modules/es6.array.copy-within.js");
@@ -63200,7 +63200,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33451" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46059" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

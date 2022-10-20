@@ -1,6 +1,6 @@
 import axios from "axios";
 import { compare } from "bcryptjs";
-import { state } from "../../model";
+import { state } from "../../archive/model";
 import { createArr } from "../utils";
 
 exports.searchComponent = async (partNumber) => {

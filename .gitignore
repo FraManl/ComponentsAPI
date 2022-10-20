@@ -3,3 +3,7 @@ archive
 .parcel-cache/
 index.html
 config.env
+model.js
+helpers.js
+controllers.js
+eventHandlers.js

@@ -1,7 +1,7 @@
 "use strict";
-import * as helpers from "./helpers.js";
-import { AJAX } from "./helpers.js";
-import * as eventHandlers from "./eventHandlers.js";
+import * as helpers from "../helpers.js";
+import { AJAX } from "../helpers.js";
+import * as eventHandlers from "../eventHandlers.js";
 
 export const state = {
   partNumber: {},
