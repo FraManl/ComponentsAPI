@@ -346,17 +346,16 @@ h3 {
   background-color: white;
 }
 
-.section-middle--welcome__wrapper {
+.section-middle__welcome__wrapper {
   display: grid;
   justify-items: center;
 }
 
-.section-middle--welcome {
+.section-middle__welcome {
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
   display: grid;
-  flex-grow: 1;
   gap: 20px;
   width: 100%;
   grid-template-columns: 1fr;
@@ -365,17 +364,17 @@ h3 {
   align-items: center;
 }
 
-.section-middle--welcome__nav {
+.section-middle__welcome__nav {
   display: grid;
   gap: 15px;
   min-width: 300px;
 }
 
-.section-middle--welcome h1 {
+.section-middle__welcome h1 {
   font-size: 2.5rem;
   color: #2b2f75;
 }
-.section-middle--welcome h3 {
+.section-middle__welcome h3 {
   font-size: 1.5rem;
   color: #000000;
 }
@@ -383,6 +382,9 @@ h3 {
 .section-middle_login {
   display: grid;
   gap: 30px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   justify-items: center;

@@ -1,67 +1,7 @@
 import axios from "axios";
 import { compare } from "bcryptjs";
 import { createArr } from "../utils";
-
-exports.searchComponent = async (partNumber) => {
-  try {
-    const payLoad = createArr(partNumber);
-    const res = await axios({
-      method: "POST",
-      url: "/api/v1/requests",
-      data: {
-        partNumber: payLoad,
-      },
-    });
-    if (res.data.status === "success") {
-      console.log("Post method successful");
-    }
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-exports.dropComponent = async function (e) {
-  try {
-    e.preventDefault();
-    if (!e.dataTransfer.items) return;
-    let fileItem = [];
-    fileItem.push(e.dataTransfer.items);
-    const stateData = await readerHandler("drop", fileItem);
-    const res = await axios({
-      method: "POST",
-      url: "api/v1/requests",
-      data: {
-        partNumber: stateData,
-      },
-    });
-    if (res.data.status === "success") {
-      console.log("Post method successful");
-    }
-    // eventHandlers.queryPreview.classList.add("uploaded");
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-exports.uploadComponent = async function (e) {
-  try {
-    e.preventDefault();
-    const stateData = await readerHandler("submit", null, this);
-    const res = await axios({
-      method: "POST",
-      url: "/api/v1/requests",
-      data: {
-        partNumber: stateData,
-      },
-    });
-    if (res.status === "success") {
-      console.log("Post method successful");
-    }
-    // eventHandlers.queryPreview.classList.add("uploaded");
-  } catch (err) {
-    console.log(err);
-  }
-};
+import { showAlert } from "./alerts";
 
 const readerHandler = async function (type, file, input) {
   return new Promise((resolve, reject) => {
@@ -92,4 +32,74 @@ const readerHandler = async function (type, file, input) {
       console.log(err);
     }
   });
+};
+
+exports.searchComponent = async (partNumber) => {
+  try {
+    const payLoad = createArr(partNumber);
+    const res = await axios({
+      method: "POST",
+      url: "/api/v1/requests",
+      data: {
+        partNumber: payLoad,
+      },
+    });
+    if (res.data.status === "success") {
+      showAlert(
+        "success",
+        `Component imported : ${res.data.requests.request.partNumber[0]}`
+      );
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.dropComponent = async function (e) {
+  try {
+    e.preventDefault();
+    if (!e.dataTransfer.items) return;
+    let fileItem = [];
+    fileItem.push(e.dataTransfer.items);
+    const stateData = await readerHandler("drop", fileItem);
+    const res = await axios({
+      method: "POST",
+      url: "api/v1/requests",
+      data: {
+        partNumber: stateData,
+      },
+    });
+    if (res.data.status === "success") {
+      showAlert(
+        "success",
+        `Component(s) imported : ${res.data.requests.request.partNumber}`
+      );
+    }
+    // eventHandlers.queryPreview.classList.add("uploaded");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.uploadComponent = async function (e) {
+  try {
+    e.preventDefault();
+    const stateData = await readerHandler("submit", null, this);
+    const res = await axios({
+      method: "POST",
+      url: "/api/v1/requests",
+      data: {
+        partNumber: stateData,
+      },
+    });
+    if (res.data.status === "success") {
+      showAlert(
+        "success",
+        `Component(s) imported : ${res.data.requests.request.partNumber}`
+      );
+    }
+    // eventHandlers.queryPreview.classList.add("uploaded");
+  } catch (err) {
+    console.log(err);
+  }
 };
