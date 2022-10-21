@@ -5,7 +5,10 @@ const stateSchema = new mongoose.Schema({
   partNumber: {
     type: [String],
   },
-  createdAt: Date,
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 //   componentInput: {},
