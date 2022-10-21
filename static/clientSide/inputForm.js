@@ -37,6 +37,10 @@ const readerHandler = async function (type, file, input) {
 exports.searchComponent = async (partNumber) => {
   try {
     const payLoad = createArr(partNumber);
+    if (!payLoad[0]) {
+      showAlert("Error", "Please provide a valid component reference!");
+      return;
+    }
     const res = await axios({
       method: "POST",
       url: "/api/v1/requests",

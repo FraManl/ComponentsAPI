@@ -61763,7 +61763,17 @@ exports.searchComponent = /*#__PURE__*/function () {
           case 0:
             _context4.prev = 0;
             payLoad = (0, _utils.createArr)(partNumber);
-            _context4.next = 4;
+
+            if (payLoad[0]) {
+              _context4.next = 5;
+              break;
+            }
+
+            (0, _alerts.showAlert)("Error", "Please provide a valid component reference!");
+            return _context4.abrupt("return");
+
+          case 5:
+            _context4.next = 7;
             return (0, _axios.default)({
               method: "POST",
               url: "/api/v1/requests",
@@ -61772,27 +61782,27 @@ exports.searchComponent = /*#__PURE__*/function () {
               }
             });
 
-          case 4:
+          case 7:
             res = _context4.sent;
 
             if (res.data.status === "success") {
               (0, _alerts.showAlert)("success", "Component imported : ".concat(res.data.requests.request.partNumber[0]));
             }
 
-            _context4.next = 11;
+            _context4.next = 14;
             break;
 
-          case 8:
-            _context4.prev = 8;
+          case 11:
+            _context4.prev = 11;
             _context4.t0 = _context4["catch"](0);
             console.log(_context4.t0);
 
-          case 11:
+          case 14:
           case "end":
             return _context4.stop();
         }
       }
-    }, _callee4, null, [[0, 8]]);
+    }, _callee4, null, [[0, 11]]);
   }));
 
   return function (_x6) {
@@ -62335,7 +62345,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39169" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45879" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
