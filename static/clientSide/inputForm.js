@@ -38,7 +38,7 @@ exports.searchComponent = async (partNumber) => {
   try {
     const payLoad = createArr(partNumber);
     if (!payLoad[0]) {
-      showAlert("Error", "Please provide a valid component reference!");
+      showAlert("error", "Please provide a valid component reference!");
       return;
     }
     const res = await axios({
@@ -48,14 +48,18 @@ exports.searchComponent = async (partNumber) => {
         partNumber: payLoad,
       },
     });
+
+    document.querySelector(".query-input-preview").classList.add("uploaded");
     if (res.data.status === "success") {
       showAlert(
         "success",
         `Component imported : ${res.data.requests.request.partNumber[0]}`
       );
     }
+
+    return res.data.requests.request._id;
   } catch (err) {
-    console.log(err);
+    showAlert("error", err.response.data.message);
   }
 };
 
@@ -73,6 +77,9 @@ exports.dropComponent = async function (e) {
         partNumber: stateData,
       },
     });
+
+    document.querySelector(".query-input-preview").classList.add("uploaded");
+
     if (res.data.status === "success") {
       showAlert(
         "success",
@@ -81,7 +88,7 @@ exports.dropComponent = async function (e) {
     }
     // eventHandlers.queryPreview.classList.add("uploaded");
   } catch (err) {
-    console.log(err);
+    showAlert("error", err.response.data.message);
   }
 };
 
@@ -96,14 +103,16 @@ exports.uploadComponent = async function (e) {
         partNumber: stateData,
       },
     });
+
+    document.querySelector(".query-input-preview").classList.add("uploaded");
+
     if (res.data.status === "success") {
       showAlert(
         "success",
         `Component(s) imported : ${res.data.requests.request.partNumber}`
       );
     }
-    // eventHandlers.queryPreview.classList.add("uploaded");
   } catch (err) {
-    console.log(err);
+    showAlert("error", err.response.data.message);
   }
 };

@@ -2,6 +2,7 @@ import "@babel/polyfill";
 import { login, signup, logout } from "./login";
 import { searchComponent, dropComponent, uploadComponent } from "./inputForm";
 import { preventDefaults } from "../utils";
+import { displayComponent } from "./viewController";
 
 const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
@@ -51,7 +52,8 @@ if (signOutBtn) {
 if (componentInput) {
   document.querySelector(".btn-submit").addEventListener("click", (e) => {
     e.preventDefault();
-    searchComponent(componentInput.value);
+    const stateId = searchComponent(componentInput.value);
+    const currentState = displayComponent(stateId);
     componentInput.value = "";
   });
 }
